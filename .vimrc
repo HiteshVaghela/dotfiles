@@ -1,4 +1,6 @@
 set nocompatible
+filetype off                  " required
+
 so ~/.vim/plugins.vim
 
 set encoding=utf-8
@@ -62,12 +64,6 @@ set incsearch				                        "Incrementally highlight, as we type.
 set splitbelow 				                        "Make splits default to below...
 set splitright				                        "And to the right. This feels more natural.
 
-"Simpler split switching
-nmap <C-J> <C-W><C-J>                                           
-nmap <C-K> <C-W><C-K>
-nmap <C-H> <C-W><C-H>
-nmap <C-L> <C-W><C-L>
-
 
 
 
@@ -78,21 +74,32 @@ if has('gui_running')
     nmap <Leader>0 :FullscreenToggle<cr>
 endif
 
-"open split easilt
-nmap <Leader>m :vsp<cr>			
-nmap <Leader>n :sp<cr>
+"open split easily
+nmap <Leader>v :vsp<cr>		            
+nmap <Leader>h :sp<cr>                      
+
+"Simpler split switching
+nmap <C-J> <C-W><C-J>                                           
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+
+if bufwinnr(1)
+  map + <C-W>+                              
+  map - <C-W>-                              
+  map <Bar> <c-w>_<c-w><Bar>            
+  map = <C-W>=                                 
+endif
 
 "Close the split
-nmap <Leader>b :q<cr>			
-
-"Close without saving buffer
-nmap <Leader><End> :q!<cr>		
+nmap <Leader>c :q<cr>			    
 
 "Save buffer
-nmap <Leader>. :w<cr>			
+nmap <Leader>s :w<cr>			
+
 
 "Save and close tab 
-nmap <Leader>/ :w<cr> :tabclose<cr>		
+nmap <C-X> :w<cr> :tabclose<cr>		
 
 "Edit Vimrc quickly
 nmap <Leader>ev :tabedit $MYVIMRC<cr>	
@@ -105,7 +112,7 @@ nmap <Leader>es :tabedit ~/.vim/snippets/
 nmap <Leader>l :set invnumber<cr>	
 
 "Simpler highlight removal
-nmap <Leader>c :nohlsearch<cr>		
+nmap <Leader><space> :nohlsearch<cr>		
 
 "let isnumber = &number
 
