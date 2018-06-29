@@ -1,0 +1,87 @@
+#-----------Open programs from terminal-------------
+
+alias ch='google-chrome'
+
+
+
+#-----------Comman terminal commands-------------
+
+alias reset='tput reset'
+alias c='clear'
+alias e='exit'
+alias sh='gnome-session-quit --power-off'
+
+
+
+#-----------Volume controls-------------
+
+alias vg='amixer -D pulse sset Master 5%+'
+alias vh='amixer -D pulse sset Master 5%-'
+alias vj='amixer -D pulse sset Master toggle'
+alias vb='amixer -D pulse sset Master 25%'
+alias vn='amixer -D pulse sset Master 50%'
+alias vm='amixer -D pulse sset Master 75%'
+alias v,='amixer -D pulse sset Master 100%'
+
+
+
+#-----------Apache related commands-------------
+
+alias g='cd ~/sandbox/galaveneer'
+alias ar='sudo service apache2 restart'
+alias gc='sudo vim /etc/apache2/sites-available/galaveneer.local.conf'
+alias gen='sudo a2ensite galaveneer.local.conf'
+alias gdis='sudo a2dissite galaveneer.local.conf'
+alias ac='sudo vim /etc/apache2/apache2.conf'
+alias ge='sudo vim ~/sandbox/galaveneer/logs/error.log'
+alias ga='sudo vim ~/sandbox/galaveneer/logs/access.log'
+alias s='source ~/.zshrc'
+
+
+
+#-----------Ubuntu update commands-------------
+
+alias m='vim ~/.my_alias'
+alias u='sudo apt-get update'
+alias ug='sudo apt-get upgrade'
+alias a='sudo apt-get autoremove'
+
+
+
+#-----------Ranger commands-------------
+
+alias r='ranger'
+alias ra='ranger --copy-config=all'
+alias rc='vim ~/.config/ranger/rc.conf'
+
+
+
+#-----------Vim commands-------------
+
+alias v='vim'
+alias vc='vim ~/.vimrc'
+alias vp='vim ~/.vim/plugins.vim'
+
+
+
+#-----------tmux commands-------------
+
+alias tm='tmux new'
+alias ts='tmux source-file ~/.tmux.conf'
+alias tk='tmux kill-server'
+alias tc='vim ~/.tmux.conf'
+alias tl='tmux ls'
+
+
+export TERM=xterm-256color
+
+
+
+#-----------zsh commands-------------
+#Shift+Page Up/Down to scroll the output
+#
+#
+#
+#
+#Output the directory permissions
+#namei -l /home/myuser/public_html
