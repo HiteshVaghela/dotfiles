@@ -9,7 +9,7 @@ set ttimeoutlen=50
 syntax enable
 set backspace=indent,eol,start		                        "Make backspace behave like every other editor.
 let mapleader = ','		                                "The default is \, but a comma is much better.
-set number				                        "Let's activate line numbers.
+set relativenumber				                        "Let's activate line numbers.
 set noerrorbells visualbell t_vb=	                        "No damn bells!	
 set autowriteall			                        "Automatically write the file when switching buffers.
 set complete=.,w,b,u			                        "Set our desired autocompletion matching.
@@ -118,7 +118,7 @@ nmap <C-X> :w<cr> :tabclose<cr>
 nmap <Leader>ev :tabedit $MYVIMRC<cr>	
 
 nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
-nmap <Leader>es :tabedit ~/.vim/snippets/
+nmap <Leader>es :tabedit ~/.vim/snippets/php.snippets<cr>
 
 "Toggle line numbers
 nmap <Leader>l :set invnumber<cr>	
@@ -132,7 +132,7 @@ nmap <Leader>pi : PluginInstall<cr>
 "Browse tag/symbol in project. Run ctags-R to generate the index
 nmap <Leader>f :tag<space>
 
-nmap <Leader>et :e ~/sandbox/galaveneer/app/classes/sw_request.php<cr>
+nmap <Leader>et :tabedit ~/sandbox/galaveneer/app/classes/sw_request.php<cr>
 
 "Sort PHP use statements
 "http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
