@@ -1,4 +1,3 @@
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -31,7 +30,11 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'simeji/winresizer'
 "Plugin 'ryanoasis/vim-devicons'
-Plugin 'qualiabyte/vim-colorstepper'
+"Plugin 'qualiabyte/vim-colorstepper'
+Plugin 'dkarter/bullets.vim'
+
+
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

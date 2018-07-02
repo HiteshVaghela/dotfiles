@@ -1,5 +1,6 @@
 set nocompatible
-filetype off                  " required
+
+filetype off                                                    " required
 
 so ~/.vim/plugins.vim
 
@@ -19,6 +20,7 @@ set shiftwidth=4
 
 "-------------Visuals--------------"
 
+set t_Co=256                                                "Use 256 Colors. This is useful for Terminal Vim."
 colorscheme atom-dark
 
 if has('gui_running')			                        "Set the default font family and size.
@@ -37,13 +39,12 @@ if has('gui_running')			                        "Set the default font family and
     set guioptions-=M
     set guioptions-=T
 else 
-    set t_Co=256                                                "Use 256 Colors. This is useful for Terminal Vim."
 
     "Get rid of ugly split borders
     hi VertSplit ctermfg=bg		                        
     hi LineNr ctermbg=bg 
     "set foldcolumn=1                                            "We'll fake a custom left padding for each window
-    "hi foldcolumn ctermbg=bg
+    hi foldcolumn ctermbg=bg
 
 endif
 
@@ -85,25 +86,36 @@ nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
 if bufwinnr(1)
-  map + <C-W>+                              
-  map - <C-W>-                              
+  "Incease split size
+  map + <C-W>+       
+
+  "Descrease split sise  
+  map - <C-W>-         
+
+  "Maximise width of the split
   map <Bar> <c-w>_<c-w><Bar>            
+
+
+  "Restore all split
   map = <C-W>=                                 
 endif
 
+"Insert date in mornal and insert mode
+imap <C-D> <C-R>=strftime("Date : %a,%d %b %H:%M")<CR>
+map <C-D> :put =strftime(\"Date : %a,%d %b %H:%M\")<CR>
+
 "Close the split
-nmap <Leader>c :q<cr>			    
+nmap <C-c> :q<cr>			    
 
 "Save buffer
-nmap <Leader>s :w<cr>			
-
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>
 
 "Save and close tab 
 nmap <C-X> :w<cr> :tabclose<cr>		
 
 "Edit Vimrc quickly
 nmap <Leader>ev :tabedit $MYVIMRC<cr>	
-
 
 nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
 nmap <Leader>es :tabedit ~/.vim/snippets/
@@ -113,14 +125,6 @@ nmap <Leader>l :set invnumber<cr>
 
 "Simpler highlight removal
 nmap <Leader><space> :nohlsearch<cr>		
-
-"let isnumber = &number
-
-"if isnumber
-"    set foldcolumn=1
-"else
-"    set foldcolumn=0
-"endif
 
 "Quickly open vim plugin file
 nmap <Leader>pi : PluginInstall<cr>	
@@ -266,14 +270,32 @@ endif
 set noshowmode                                                  "remove duplicate mode text from status line
 
 
+"--------------Bullets--------------"
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
 
 
-"-------------Laravel-Specific--------------"
-nmap <Leader>lr :e app/Http/routes.php<cr>
-nmap <Leader>lm :!php artisan make:
-nmap <Leader><Leader>c :e app/Http/Controllers/<cr>
-nmap <Leader><Leader>m :CtrlP<cr>app/
-nmap <Leader><Leader>v :e resources/views/<cr>
+
+
+
+"-------------Project-Specific--------------"
+nmap <Leader>am :tabedit ~/sandbox/galaveneer/app/includes/menu_data.php<cr>
+nmap <Leader>ad :tabedit ~/sandbox/galaveneer/app/classes_common/_database.php<cr>
+nmap <Leader>ap:tabedit ~/sandbox/galaveneer/app/classes_common/_pdf.php<cr>
+nmap <Leader>ae :tabedit ~/sandbox/galaveneer/app/classes_common/_excel.php<cr>
+nmap <Leader>ag :tabedit ~/sandbox/galaveneer/app/classes_common/_gui.php<cr>
+
+nmap <Leader>ac :tabedit ~/sandbox/galaveneer/app/classes/
+nmap <Leader>ap :tabedit ~/sandbox/galaveneer/app/public/
+nmap <Leader>aj :tabedit ~/sandbox/galaveneer/assets/js/
+nmap <Leader>as :tabedit ~/sandbox/galaveneer/assets/css/
+"nmap <Leader><Leader>ap :CtrlP<cr>app/
+"nmap <Leader><Leader>ad :e resources/views/<cr>
 
 
 
@@ -287,6 +309,7 @@ autocmd User Signify call sy#sign#remove_all_signs(bufnr(''))
 augroup autosourcing
         autocmd!
 	autocmd BufWritePost .vimrc source %
+        !cp ~/.vimrc ~/sandbox/dotfiles/.vimrc && cp ~/.vim/plugins.vim ~/sandbox/dotfiles/plugins.vim
 augroup END
 
 

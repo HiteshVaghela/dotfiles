@@ -75,7 +75,8 @@ alias tl='tmux ls'
 
 export TERM=xterm-256color
 
-
+stty stop undef
+stty start undef
 
 #-----------zsh commands-------------
 #Shift+Page Up/Down to scroll the output
