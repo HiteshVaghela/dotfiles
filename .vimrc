@@ -109,7 +109,7 @@ nmap <C-c> :q<cr>
 
 "Save buffer
 nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>
+imap <c-s> <Esc>:w<cr>a
 
 "Save and close tab 
 nmap <C-X> :w<cr> :tabclose<cr>		
@@ -309,7 +309,7 @@ autocmd User Signify call sy#sign#remove_all_signs(bufnr(''))
 augroup autosourcing
         autocmd!
 	autocmd BufWritePost .vimrc source %
-        !cp ~/.vimrc ~/sandbox/dotfiles/.vimrc && cp ~/.vim/plugins.vim ~/sandbox/dotfiles/plugins.vim
+        "!cp ~/.vimrc ~/sandbox/dotfiles/.vimrc && cp ~/.vim/plugins.vim ~/sandbox/dotfiles/plugins.vim
 augroup END
 
 
