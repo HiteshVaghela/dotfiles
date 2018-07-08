@@ -76,6 +76,13 @@ alias tl='tmux ls'
 export TERM=xterm-256color
 
 
+
+
+#-----------Export composer path-------------
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+
+
 #-----------Aotomate Dotfiles-------------
 alias dot='cp ~/.vimrc ~/sandbox/dotfiles/ && cp ~/.tmux.conf ~/sandbox/dotfiles/ && cp ~/.vim/plugins.vim ~/sandbox/dotfiles/ && cp ~/.my_alias ~/sandbox/dotfiles/'
 

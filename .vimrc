@@ -1,6 +1,6 @@
 set nocompatible
 
-filetype off                                                    " required
+filetype off                                                    "required
 
 so ~/.vim/plugins.vim
 
@@ -9,7 +9,7 @@ set ttimeoutlen=50
 syntax enable
 set backspace=indent,eol,start		                        "Make backspace behave like every other editor.
 let mapleader = ','		                                "The default is \, but a comma is much better.
-set relativenumber				                        "Let's activate line numbers.
+set relativenumber				                "Let's activate line numbers.
 set noerrorbells visualbell t_vb=	                        "No damn bells!	
 set autowriteall			                        "Automatically write the file when switching buffers.
 set complete=.,w,b,u			                        "Set our desired autocompletion matching.
@@ -20,7 +20,7 @@ set shiftwidth=4
 
 "-------------Visuals--------------"
 
-set t_Co=256                                                "Use 256 Colors. This is useful for Terminal Vim."
+set t_Co=256                                                    "Use 256 Colors. This is useful for Terminal Vim."
 colorscheme atom-dark
 
 if has('gui_running')			                        "Set the default font family and size.
@@ -43,9 +43,11 @@ else
     "Get rid of ugly split borders
     hi VertSplit ctermfg=bg		                        
     hi LineNr ctermbg=bg 
-    "set foldcolumn=1                                            "We'll fake a custom left padding for each window
+    "set foldcolumn=1                                           "We'll fake a custom left padding for each window
     hi foldcolumn ctermbg=bg
 
+set cursorline
+hi CursorLine ctermbg=235 guibg=Grey
 endif
 
 
@@ -105,11 +107,11 @@ imap <C-D> <C-R>=strftime("Date : %a,%d %b %H:%M")<CR>
 map <C-D> :put =strftime(\"Date : %a,%d %b %H:%M\")<CR>
 
 "Close the split
-nmap <C-c> :q<cr>			    
+nmap <C-C> :q<cr>			    
 
 "Save buffer
-nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<cr>a
+nmap <C-S> :w<CR>
+imap <C-S> <Esc>:w<cr>a
 
 "Save and close tab 
 nmap <C-X> :w<cr> :tabclose<cr>		
@@ -301,6 +303,11 @@ nmap <Leader>as :tabedit ~/sandbox/galaveneer/assets/css/
 
 
 "-------------Auto-Commands--------------"
+
+hi CursorLineNR ctermbg=236
+augroup CLNRSet
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
 
 "Hide Signify diff signs on startup
 autocmd User Signify call sy#sign#remove_all_signs(bufnr(''))
