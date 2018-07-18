@@ -9,7 +9,7 @@ alias ch='google-chrome'
 alias reset='tput reset'
 alias c='clear'
 alias e='exit'
-alias sh='gnome-session-quit --power-off'
+alias shutdown='gnome-session-quit --power-off'
 
 
 
@@ -80,7 +80,7 @@ export TERM=xterm-256color
 
 #-----------Export composer path-------------
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-
+export PATH="$HOME/jdk1.8.0_171/bin:$PATH"
 
 
 #-----------Aotomate Dotfiles-------------
@@ -89,6 +89,17 @@ alias dot='cp ~/.vimrc ~/sandbox/dotfiles/ && cp ~/.tmux.conf ~/sandbox/dotfiles
 
 stty stop undef
 stty start undef
+
+
+
+
+
+#-----------Aotomate Dotfiles-------------
+alias pssh='ssh -p 7822 prakarsh@prakarsh'
+
+
+
+
 
 #-----------zsh commands-------------
 #Shift+Page Up/Down to scroll the output
